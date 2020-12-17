@@ -34,7 +34,14 @@ public class DvDController {
     }
  
     // get DVD by ID
-
+    @GetMapping("/dvd/{id}")
+    public ResponseEntity<DvD> findById(@PathVariable int id) {
+        DvD result = dao.findById(id);
+        if (result == null) {
+            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(result);
+    }
     
     // Get all DVD
 
