@@ -1,18 +1,17 @@
-drop database if exists DVDCatalogue;
+DROP DATABASE IF EXISTS DVDCatalogue;
+CREATE DATABASE DVDCatalogue;
 
-create database DVDCatalogue;
+USE DVDCatalogue;
 
-use DVDCatalogue;
-
-create table DvD(
-	DvDId int primary key auto_increment,
-    Title varchar(128) not null,
-    ReleaseYear int not null,
-    Director varchar(60) not null,
-    Rating char(5) not null,
-    notes varchar(128)
+CREATE TABLE DVDs (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(50) NOT NULL,
+    releaseYear INT NOT NULL,
+    directorName VARCHAR(50) NOT NULL,
+    rating VARCHAR(50) NOT NULL,
+    notes VARCHAR(100) NOT NULL
 );
 
-INSERT INTO DvD (DvDId, Title, ReleaseYear, Director, Rating, notes) VALUES
-	(1, "A Great Tale", 2015, "Sam Jones", "PG", "This really great tale!"),
-    (2, "A Good Tale", 2012, "Joe Smith", "PG-13", "This is a good tale!");
+INSERT INTO DVDs (title, releaseYear, directorName, rating, notes) VALUES
+	('A Great Tale', 2015, 'Sam Jones', 'PG', 'This really is a great tale'),
+    ('A Good Tale', 2012, 'Joe Smith', 'PG-13', 'This really is a good tale');
