@@ -109,6 +109,12 @@ public class DvDController {
     }
     
     // delete a dvd by id
-
+    @DeleteMapping("/dvd/{id}")
+    public ResponseEntity delete(@PathVariable int id) {
+        if (dao.deleteById(id)) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
     
 }
