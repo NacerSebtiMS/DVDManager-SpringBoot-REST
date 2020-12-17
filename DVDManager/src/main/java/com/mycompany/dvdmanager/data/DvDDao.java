@@ -20,7 +20,7 @@ public interface DvDDao {
     List<DvD> getAll();
     
     // Get dvd by title
-    DvD findById(String title);
+    DvD findByTitle(String title);
     
     // get dvd by release year
     DvD findByReleaseYear(int ry);
