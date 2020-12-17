@@ -60,7 +60,14 @@ public class DvDController {
     }
     
     // get dvd by release year
-
+    @GetMapping("/dvds/year/{year}")
+    public ResponseEntity<DvD> findByReleaseYear(@PathVariable int year) {
+        DvD result = dao.findByReleaseYear(year);
+        if (result == null) {
+            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(result);
+    }
     
     // get dvd by director name
     
