@@ -5,10 +5,39 @@
  */
 package com.mycompany.dvdmanager.data;
 
+import com.mycompany.dvdmanager.models.DvD;
+import java.util.List;
+
 /**
  *
  * @author nacer
  */
 public interface DvDDao {
+    // get DVD by ID
+    DvD findById(int id);
+    
+    // Get all DVD
+    List<DvD> getAll();
+    
+    // Get dvd by title
+    DvD findById(String title);
+    
+    // get dvd by release year
+    DvD findByReleaseYear(int ry);
+    
+    // get dvd by director name
+    DvD findByDirectorName(String dn);
+    
+    // get dvd by rating
+    DvD findByRating(String rating);
+    
+    // create a dvd
+    DvD add(DvD dvd);
+    
+    // update a dvd
+    boolean update(DvD dvd);
+    
+    // delete a dvd by id
+    boolean deleteById(int id);
     
 }
