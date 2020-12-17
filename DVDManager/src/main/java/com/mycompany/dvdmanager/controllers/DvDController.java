@@ -80,7 +80,14 @@ public class DvDController {
     }
     
     // get dvd by rating
-
+    @GetMapping("/dvds/rating/{rating}")
+    public ResponseEntity<DvD> findByRating(@PathVariable String rating) {
+        DvD result = dao.findByRating(rating);
+        if (result == null) {
+            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(result);
+    }
     
     // create a dvd
 
