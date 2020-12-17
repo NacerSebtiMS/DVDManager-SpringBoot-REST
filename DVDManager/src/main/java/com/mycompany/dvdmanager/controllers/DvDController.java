@@ -50,13 +50,20 @@ public class DvDController {
     }
     
     // Get dvd by title
-
+    @GetMapping("/dvds/{title}")
+    public ResponseEntity<DvD> findByTitle(@PathVariable String title) {
+        DvD result = dao.findByTitle(title);
+        if (result == null) {
+            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(result);
+    }
     
     // get dvd by release year
 
     
     // get dvd by director name
-
+    
     
     // get dvd by rating
 
