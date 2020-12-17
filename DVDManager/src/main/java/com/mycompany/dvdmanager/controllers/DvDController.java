@@ -70,7 +70,14 @@ public class DvDController {
     }
     
     // get dvd by director name
-    
+    @GetMapping("/dvds/director/{dn}")
+    public ResponseEntity<DvD> findByDirectorName(@PathVariable String dn) {
+        DvD result = dao.findByDirectorName(dn);
+        if (result == null) {
+            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(result);
+    }
     
     // get dvd by rating
 
