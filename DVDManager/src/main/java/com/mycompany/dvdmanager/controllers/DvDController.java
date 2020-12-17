@@ -44,7 +44,10 @@ public class DvDController {
     }
     
     // Get all DVD
-
+    @GetMapping("/dvds")
+    public List<DvD> all() {
+        return dao.getAll();
+    }
     
     // Get dvd by title
 
