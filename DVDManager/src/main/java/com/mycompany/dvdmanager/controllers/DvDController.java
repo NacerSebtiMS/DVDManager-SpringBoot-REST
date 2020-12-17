@@ -90,7 +90,11 @@ public class DvDController {
     }
     
     // create a dvd
-
+    @PostMapping("/dvd/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public DvD create(@RequestBody DvD dvd) {
+        return dao.add(dvd);
+    }
     
     // update a dvd
     @PutMapping("/dvd/{id}")
