@@ -50,7 +50,7 @@ public class DvDController {
     }
     
     // Get dvd by title
-    @GetMapping("/dvds/{title}")
+    @GetMapping("/dvds/title/{title}")
     public ResponseEntity<DvD> findByTitle(@PathVariable String title) {
         DvD result = dao.findByTitle(title);
         if (result == null) {
@@ -90,7 +90,7 @@ public class DvDController {
     }
     
     // create a dvd
-    @PostMapping("/dvd/{id}")
+    @PostMapping("/dvd")
     @ResponseStatus(HttpStatus.CREATED)
     public DvD create(@RequestBody DvD dvd) {
         return dao.add(dvd);

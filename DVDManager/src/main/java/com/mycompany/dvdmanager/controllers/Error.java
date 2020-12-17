@@ -5,23 +5,28 @@
  */
 package com.mycompany.dvdmanager.controllers;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author nacer
  */
 public class Error {
+    private LocalDateTime timestamp = LocalDateTime.now();
     private String message;
 
-    /**
-     * @return the message
-     */
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
     public String getMessage() {
         return message;
     }
 
-    /**
-     * @param message the message to set
-     */
     public void setMessage(String message) {
         this.message = message;
     }

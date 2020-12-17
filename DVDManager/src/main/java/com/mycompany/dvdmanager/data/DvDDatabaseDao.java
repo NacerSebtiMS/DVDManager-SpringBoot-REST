@@ -113,9 +113,9 @@ public class DvDDatabaseDao implements DvDDao{
         final String sql = "UPDATE DVDs SET "
                 + "title = ?, "
                 + "releaseYear = ?, "
-                + "directorName = ? "
-                + "rating = ? "
-                + "notes = ?"
+                + "directorName = ?, "
+                + "rating = ?, "
+                + "notes = ? "
                 + "WHERE id = ?;";
 
         return jdbcTemplate.update(sql,
