@@ -93,7 +93,16 @@ public class DvDController {
 
     
     // update a dvd
-
+    @PutMapping("/dvd/{id}")
+    public ResponseEntity update(@PathVariable int id, @RequestBody DvD dvd) {
+        ResponseEntity response = new ResponseEntity(HttpStatus.NOT_FOUND);
+        if (id != dvd.getId()) {
+            response = new ResponseEntity(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (dao.update(dvd)) {
+            response = new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        return response;
+    }
     
     // delete a dvd by id
 
